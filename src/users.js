@@ -1,14 +1,16 @@
-const users = require('../config/users');
+module.exports = (opts) => {
+  const users = opts.users;
 
-function getAll() {
-  return users;
-}
+  function getAll() {
+    return users;
+  }
 
-function getByGithubName(name) {
-  return users.filter(details => details.githubUserName == name).pop();
-}
+  function getByGithubName(name) {
+    return users.filter(details => details.githubUserName == name).pop();
+  }
 
-module.exports = {
-  getAll,
-  getByGithubName,
+  return {
+    getAll,
+    getByGithubName,
+  }
 }

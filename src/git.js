@@ -1,21 +1,22 @@
 const shell = require('shelljs');
 
+const silent = false;
+
 class Git {
   constructor(opts) {
     this.baseDir = opts.directory;
+    this.gitUrl = opts.url;
   }
 
   checkout(repository) {
     const repoDirName = repository.replace('/', '-');
     const directory = `${this.baseDir}${repoDirName}/`;
     if (!shell.test('-d', directory)) {
-      console.log(directory, 'not exists');
       shell.mkdir('-p', directory);
-      const repoUrl = `https://github.com/${repository}.git`;
+      const repoUrl = `${this.gitUrl}/${repository}.git`;
       let res = shell.exec(`git clone ${repoUrl} ${directory}`, {silent});
       return res.code === 0;
     } else {
-      console.log(directory, 'exists - skipped');
       return true;
     }
   }

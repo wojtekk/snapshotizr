@@ -1,19 +1,18 @@
 require('dotenv').config({silent: true});
 
-const Git = require('./git')
-const github = require('./github');
-const users = require('./users');
+const config = require('./config')();
+const Git = require('./git');
+const github = require('./github')({token: config.ghe.token, apiUrl: config.ghe.apiUrl});
+const users = require('./users')({users: config.users});
 
 // START PARAMS
 const since = new Date('2016-03-01');
 const until = new Date('2016-05-31');
-const tmpDir = './tmp/';
-const repositoriesDir = `${tmpDir}repositories/`;
 // END PARAMS
 
-const writer = require('./writer')({directory: `${tmpDir}reports/`});
+const writer = require('./writer')({directory: config.reportsDir});
 
-const git = new Git({directory: repositoriesDir});
+const git = new Git({url: config.ghe.url, directory: config.repositoriesDir});
 
 function cloneRepositories(usersRepositories) {
   usersRepositories.forEach(user => {
@@ -27,15 +26,12 @@ function cloneRepositories(usersRepositories) {
 
 function generateDiffs(usersRepositories) {
   usersRepositories.forEach(user => {
-    const users = require('./users');
     user.repositories.forEach(repository => {
       const userDetails = users.getByGithubName(user.name);
       var res = git.log(since, until, userDetails, repository);
       if (res !== '') {
-        console.log("write");
         writer.write(userDetails, repository, res);
       } else {
-        console.log("empty");
       }
     });
   });
@@ -44,10 +40,14 @@ function generateDiffs(usersRepositories) {
 }
 
 function cleanUp() {
-  //shell.rm('-rf', tmpDir);
+  //shell.rm('-rf', config.repositoriesDir);
 }
 
 Promise.all(users.getAll().map(user => github.getUserRepositories(user.githubUserName, since, until)))
   .then(cloneRepositories)
   .then(generateDiffs)
-  .then(cleanUp);
+  .then(cleanUp)
+  .catch((eror) => {
+    console.error(eror);
+    cleanUp();
+  });
