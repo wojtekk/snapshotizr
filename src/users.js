@@ -6,11 +6,11 @@ module.exports = (opts) => {
   }
 
   function getByGithubName(name) {
-    return users.filter(details => details.githubUserName == name).pop();
+    return users.filter(details => details.githubUserName === name).pop();
   }
 
   return {
     getAll,
     getByGithubName,
-  }
-}
+  };
+};

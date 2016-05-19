@@ -11,7 +11,7 @@ const config = {
         'wojtekk@gmail.com',
       ],
     },
-  ]
+  ],
 };
 
 module.exports = config;

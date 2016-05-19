@@ -2,7 +2,6 @@ const fs = require('fs');
 const shell = require('shelljs');
 
 module.exports = (opts) => {
-
   const directory = opts.directory;
 
   function write(userDetails, repository, res) {
@@ -15,5 +14,5 @@ module.exports = (opts) => {
 
   return {
     write,
-  }
-}
+  };
+};

@@ -8,7 +8,7 @@ module.exports = (opts = {}) => {
   const home = getUserHome();
   const appDir = `${home}/snapshotizr/`;
   const configFile = opts.file || `${appDir}/config.js`;
-  const configuration = require(configFile);
+  const configuration = require(configFile);// eslint-disable-line global-require
 
   const defaultSettings = {
     appDir: `${appDir}`,
@@ -17,7 +17,7 @@ module.exports = (opts = {}) => {
     ghe: {
       apiUrl: 'https://api.github.com',
       url: 'https://www.github.com',
-    }
+    },
   };
 
   return _.merge(configuration, defaultSettings);

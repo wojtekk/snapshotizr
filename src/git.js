@@ -14,11 +14,10 @@ class Git {
     if (!shell.test('-d', directory)) {
       shell.mkdir('-p', directory);
       const repoUrl = `${this.gitUrl}/${repository}.git`;
-      let res = shell.exec(`git clone ${repoUrl} ${directory}`, {silent});
+      const res = shell.exec(`git clone ${repoUrl} ${directory}`, { silent });
       return res.code === 0;
-    } else {
-      return true;
     }
+    return true;
   }
 
   log(since, until, userDetails, repository) {
@@ -30,8 +29,9 @@ class Git {
     const untilParam = `--until "${until.getUTCDate()}"`;
     const logOptions = '--patch --ignore-all-space --ignore-space-at-eol --no-color --summary';
     const options = `-c core.pager=cat -C "${directory}"`;
-    const command = `git ${options} log ${sinceParam} ${untilParam} ${userName} ${emails} ${logOptions}`;
-    const res = shell.exec(command, {silent:true});
+    const command = `git ${options} log ${sinceParam} ${untilParam} ` +
+      `${userName} ${emails} ${logOptions}`;
+    const res = shell.exec(command, { silent: true });
     return res.stdout;
   }
 }
