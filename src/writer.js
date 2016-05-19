@@ -9,6 +9,8 @@ module.exports = (opts) => {
     const reportsDir = `${directory}${userDetails.name}/`;
     shell.mkdir('-p', reportsDir);
     const fileName = `${reportsDir}${repoDirName}.diff`;
+    console.info(`Saving diff: ${fileName}`);
+
     fs.writeFileSync(fileName, res);
   }
 

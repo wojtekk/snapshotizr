@@ -15,8 +15,8 @@ module.exports = (opts = {}) => {
     repositoriesDir: `${appDir}repositories/`,
     reportsDir: `${appDir}reports/`,
     ghe: {
-      apiUrl: 'https://api.github.com',
-      url: 'https://www.github.com',
+      apiUrl: 'https://github.schibsted.io/api/v3',
+      url: 'https://github.schibsted.io',
     },
   };
 

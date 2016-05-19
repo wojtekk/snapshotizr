@@ -14,12 +14,14 @@ module.exports = (opts) => {
           eventCreateData <= until;
     })
       .map(event => event.repo.name);
+
     const uniqRepos = [...new Set(repos)];
 
     return uniqRepos;
   }
 
   function getUserRepositories(user, since, until) {
+    console.info(`Fetching information from GHE about ${user} commitment`);
     return octo.users(user).events.fetch()
       .then(res => Object.assign({},
         { name: user, repositories: getModifiedRepos(res.items, since, until) })

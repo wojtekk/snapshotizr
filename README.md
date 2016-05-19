@@ -1,0 +1,3 @@
+# Snapshotizr
+
+skipCleanup s

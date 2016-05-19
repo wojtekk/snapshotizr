@@ -17,7 +17,7 @@ ESLINT_OUT=`npm run lint --silent`
 echo -e "done.\n"
 
 if [ -n "$ESLINT_OUT" ]; then
-  echo -e "$RED ==== There were eslint errors, stopping commit.$NORMAL"
+  echo -e "$RED ==== There were ESlint errors, stopping commit.$NORMAL"
   echo "$ESLINT_OUT"
   exit 1
 fi
