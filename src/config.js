@@ -6,7 +6,7 @@ function getUserHome() {
 
 module.exports = (opts = {}) => {
   const home = getUserHome();
-  const appDir = `${home}/downlodaizer/`;
+  const appDir = `${home}/snapshotizr/`;
   const configFile = opts.file || `${appDir}/config.js`;
   const configuration = require(configFile);
 

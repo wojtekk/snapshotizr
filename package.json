@@ -1,11 +1,11 @@
 {
-  "name": "downlodaizer",
+  "name": "snapshotizr",
   "version": "0.1.0",
   "description": "Create monthly team diff from GHE repositories",
   "main": "./src/cli.js",
   "bin": {
-    "downlodaizer": "./src/cli.js",
-    "downlodaizer-init": "mkdir ~/downlodaizer; cp ./example-config.js ~/downlodaizer/"
+    "snapshotizr": "./src/cli.js",
+    "snapshotizr-init": "mkdir ~/snapshotizr; cp ./example-config.js ~/snapshotizr/"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
