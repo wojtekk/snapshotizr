@@ -33,7 +33,7 @@ class Git {
     const command = `git ${options} log ${sinceParam} ${untilParam} ` +
       `${userName} ${emails} ${logOptions}`;
     const res = shell.exec(command, { silent: true });
-
+    console.log(res);
     return res.stdout;
   }
 

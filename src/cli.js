@@ -11,6 +11,7 @@ const monthsNames = ['January', 'February', 'March', 'April', 'May', 'June',
 const commandLineArgs = require('command-line-args');
 const cli = commandLineArgs([
   { name: 'month', alias: 'm', type: Number },
+  { name: 'skip-cleanup', alias: 's', type: Boolean },
 ]);
 const cliOptions = cli.parse();
 
@@ -30,7 +31,7 @@ console.log(`Dates range: ${since} - ${until}`);
 
 const writer = require('./writer')({ directory: config.reportsDir });
 
-const git = new Git({ url: config.ghe.url, directory: config.repositoriesDir });
+const git = new Git({ url: config.ghe.url, directory: config.repositoriesDir, skipCleanup: cliOptions['skip-cleanup'] });
 
 function cloneRepositories(usersRepositories) {
   usersRepositories.forEach(user => {

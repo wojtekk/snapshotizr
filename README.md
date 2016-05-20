@@ -11,4 +11,4 @@ Example configuration is in file: `example-config.js` - copy it, before run, to 
 Available options:
 
 * `--month, -m` - month number (1-12), default value: previous month
-* `--skipCleanup, -s` - don't remove directory with repositories (for debugging purposes)
+* `--skip-cleanup, -s` - don't remove directory with repositories (for debugging purposes)
