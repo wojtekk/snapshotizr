@@ -1,7 +1,7 @@
 const _ = require('lodash');
 
 function getUserHome() {
-  return process.env[process.platform.indexOf('win') !== -1 ? 'USERPROFILE' : 'HOME'];
+  return process.env[process.platform.indexOf('win32') !== -1 ? 'USERPROFILE' : 'HOME'];
 }
 
 module.exports = (opts = {}) => {
@@ -16,7 +16,7 @@ module.exports = (opts = {}) => {
     reportsDir: `${appDir}reports/`,
     ghe: {
       apiUrl: 'https://github.schibsted.io/api/v3',
-      url: 'https://github.schibsted.io',
+      url: 'git@github.schibsted.io:',
     },
   };
 

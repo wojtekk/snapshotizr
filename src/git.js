@@ -14,7 +14,7 @@ class Git {
       shell.mkdir('-p', directory);
       const repoUrl = `${this.gitUrl}/${repository}.git`;
       console.info(`Cloning repository ${repository}`);
-      const res = shell.exec(`git clone ${repoUrl} ${directory}`, { silent: true });
+      const res = shell.exec(`git clone ${repoUrl}.git ${directory}`, { silent: true });
       return res.code === 0;
     }
     return true;
