@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "description": "Create monthly team diff from GHE repositories",
   "main": "./src/cli.js",
+  "engines": {
+    "node": ">= 6.0",
+    "npm": ">= 3.8.6"
+  },
   "bin": {
     "snapshotizr": "./src/cli.js",
     "snapshotizr-init": "mkdir ~/.snapshotizr; cp ./example-config.js ~/.snapshotizr/"
