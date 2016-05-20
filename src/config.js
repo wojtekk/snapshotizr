@@ -19,8 +19,8 @@ module.exports = (opts = {}) => {
       url: 'git@github.schibsted.io:',
     },
     git: {
-      depth: 1000
-    }
+      depth: 1000,
+    },
   };
 
   return _.merge(configuration, defaultSettings);

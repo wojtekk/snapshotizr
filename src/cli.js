@@ -35,7 +35,7 @@ const git = new Git({
   url: config.ghe.url,
   directory: config.repositoriesDir,
   depth: config.git.depth,
-  skipCleanup: cliOptions['skip-cleanup']
+  skipCleanup: cliOptions['skip-cleanup'],
 });
 
 function cloneRepositories(usersRepositories) {

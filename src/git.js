@@ -32,7 +32,7 @@ class Git {
     const depthParam = `--depth "${this.depth}"`;
     const logOptions = '--patch --ignore-all-space --ignore-space-at-eol --no-color --summary';
     const options = `-c core.pager=cat -C "${directory}"`;
-    const command = `git ${options} log ${sinceParam} ${untilParam} ` +
+    const command = `git ${options} log ${sinceParam} ${untilParam} ${depthParam} ` +
       `${userName} ${emails} ${logOptions}`;
     const res = shell.exec(command, { silent: true });
 
