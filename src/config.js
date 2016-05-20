@@ -1,13 +1,13 @@
 const _ = require('lodash');
 
 function getUserHome() {
-  return process.env[process.platform.indexOf('win32') !== -1 ? 'USERPROFILE' : 'HOME'];
+  return process.env[/^win/.test(process.platform) ? 'USERPROFILE' : 'HOME'];
 }
 
 module.exports = (opts = {}) => {
   const home = getUserHome();
   const appDir = `${home}/.snapshotizr/`;
-  const configFile = opts.file || `${appDir}/config.js`;
+  const configFile = opts.file || `${appDir}config.js`;
   const configuration = require(configFile);// eslint-disable-line global-require
 
   const defaultSettings = {
