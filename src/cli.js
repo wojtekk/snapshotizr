@@ -31,7 +31,12 @@ console.log(`Dates range: ${since} - ${until}`);
 
 const writer = require('./writer')({ directory: config.reportsDir });
 
-const git = new Git({ url: config.ghe.url, directory: config.repositoriesDir, skipCleanup: cliOptions['skip-cleanup'] });
+const git = new Git({
+  url: config.ghe.url,
+  directory: config.repositoriesDir,
+  depth: config.git.depth,
+  skipCleanup: cliOptions['skip-cleanup']
+});
 
 function cloneRepositories(usersRepositories) {
   usersRepositories.forEach(user => {

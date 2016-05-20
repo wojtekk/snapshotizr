@@ -18,6 +18,9 @@ module.exports = (opts = {}) => {
       apiUrl: 'https://github.schibsted.io/api/v3',
       url: 'git@github.schibsted.io:',
     },
+    git: {
+      depth: 1000
+    }
   };
 
   return _.merge(configuration, defaultSettings);
