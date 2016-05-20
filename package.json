@@ -5,7 +5,7 @@
   "main": "./src/cli.js",
   "bin": {
     "snapshotizr": "./src/cli.js",
-    "snapshotizr-init": "mkdir ~/snapshotizr; cp ./example-config.js ~/snapshotizr/"
+    "snapshotizr-init": "mkdir ~/.snapshotizr; cp ./example-config.js ~/.snapshotizr/"
   },
   "scripts": {
     "test": "echo \"Warning: no test specified\" && exit 0",

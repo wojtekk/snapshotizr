@@ -4,7 +4,7 @@ Snapshotizr creates diff for each projects modified by your team members.
 
 ## Configuration
 
-Example configuration is in file: `example-config.js` - copy it, before run, to directory: `~/snapshotizr/`.
+Example configuration is in file: `example-config.js` - copy it, before run, to directory: `~/.snapshotizr/`.
 
 ## Options
 
