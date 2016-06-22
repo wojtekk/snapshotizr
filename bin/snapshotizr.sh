@@ -8,4 +8,4 @@ while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symli
 done
 DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 
-node "$DIR/../src/cli.js"
+node "$DIR/../src/cli.js" "$@"
