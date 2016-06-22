@@ -22,9 +22,9 @@ module.exports = (opts) => {
 
   function getUserRepositories(user, since, until) {
     console.info(`Fetching information from GHE about ${user} commitment`);
-    return octo.users(user).events.fetch()
+    return octo.users(user).events.fetchAll()
       .then(res => Object.assign({},
-        { name: user, repositories: getModifiedRepos(res.items, since, until) })
+        { name: user, repositories: getModifiedRepos(res, since, until) })
       )
       .catch(err => {
         console.error(err);
