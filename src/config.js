@@ -6,7 +6,7 @@ function getUserHome() {
 
 module.exports = (opts = {}) => {
   const home = getUserHome();
-  const appDir = `${home}/.snapshotizr/`;
+  const appDir = `${home}/snapshotizr/`;
   const configFile = opts.file || `${appDir}config.js`;
   const configuration = require(configFile);// eslint-disable-line global-require
 
@@ -19,8 +19,8 @@ module.exports = (opts = {}) => {
       url: 'git@github.schibsted.io:',
     },
     git: {
-      depth: 1000
-    }
+      depth: 1000,
+    },
   };
 
   return _.merge(configuration, defaultSettings);
