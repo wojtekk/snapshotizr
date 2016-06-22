@@ -13,7 +13,8 @@
   },
   "scripts": {
     "test": "echo \"Warning: no test specified\" && exit 0",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "prepublish": "npm version patch"
   },
   "author": "",
   "license": "ISC",
