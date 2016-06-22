@@ -68,6 +68,7 @@ Promise.all(users.getAll()
   .then(generateDiffs)
   .then(git.cleanUp.bind(git))
   .catch((eror) => {
+    console.log('\nSorry for error :(\nPlease report it as issue to Github project.');
     console.error(eror);
     git.cleanUp();
   });
