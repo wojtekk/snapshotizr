@@ -1,14 +1,34 @@
 # Snapshotizr
 
-Snapshotizr creates diff for each projects modified by your team members.
+Snapshot creates a diff for each project modified by your team members on Github.
 
-## Configuration
+## Setup
 
-Example configuration is in file: `example-config.js` - copy it, before run, to directory: `~/.snapshotizr/`.
+Install and initialise snapshotizr:
 
-## Options
+    npm install -g snapshotizr
+    snapshotizr-init
+
+Edit configuration file:  `~/snapshotizr/config.js`.
+
+Enjoy! :)
+
+## Working directory
+
+Snapshotizr uses directory: `~/snapshotizr/`.
+
+## Usage
+
+Just run:
+
+    snapshotizr
 
 Available options:
 
 * `--month, -m` - month number (1-12), default value: previous month
-* `--skip-cleanup, -s` - don't remove directory with repositories (for debugging purposes)
+* `--skip-cleanup, -s` - don't remove directory with repositories (for debugging)
+
+## Limitations
+
+Github provides only last 100 public events performed by a user (event == push, not commit). So in the specific
+situation, you can lose some repos.
