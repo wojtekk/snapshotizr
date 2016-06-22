@@ -8,8 +8,8 @@
     "npm": ">= 3.8.6"
   },
   "bin": {
-    "snapshotizr": "./src/cli.js",
-    "snapshotizr-init": "mkdir ~/snapshotizr; cp ./examples/config.js ~/.snapshotizr/"
+    "snapshotizr": "./bin/snapshotizr.sh",
+    "snapshotizr-init": "./bin/snapshotizr-init.sh"
   },
   "scripts": {
     "test": "echo \"Warning: no test specified\" && exit 0",
