@@ -33,7 +33,7 @@ class Git {
     const logOptions = '--patch --ignore-all-space --ignore-space-at-eol --no-color --summary';
     const options = `-c core.pager=cat -C "${directory}"`;
     const command = `git ${options} log ${sinceParam} ${untilParam} ` +
-      `${userName} ${emails} ${logOptions}`;
+      `${userName} ${emails} ${depthParam} ${logOptions}`;
     const res = shell.exec(command, { silent: true });
 
     return res.stdout;
