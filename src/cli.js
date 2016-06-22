@@ -54,7 +54,7 @@ function generateDiffs(usersRepositories) {
       const userDetails = users.getByGithubName(user.name);
       const res = git.log(since, until, userDetails, repository);
       if (res !== '') {
-        writer.write(userDetails, repository, res);
+        writer.write(since, userDetails, repository, res);
       }
     });
   });
