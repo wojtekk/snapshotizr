@@ -16,7 +16,10 @@
     "lint": "eslint .",
     "prepublish": "npm version patch"
   },
-  "author": "",
+  "author": "Wojciech Krawczyk <wojciech.krawczyk@schibsted.pl> (https://github.com/wojtekk)",
+  "contributors": [
+    "Wojciech Iskra <wojciech.iskra@schibsted.pl>"
+  ],
   "license": "ISC",
   "dependencies": {
     "command-line-args": "2.1.6",
