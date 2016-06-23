@@ -5,6 +5,7 @@ const config = {
   users: [
     {
       githubUserName: 'wojtekk',
+      githubPersonalToken: 'YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY',
       name: 'Wojciech Krawczyk',
       emails: [
         'wojciech.krawczyk@schibsted.pl',
