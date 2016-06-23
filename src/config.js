@@ -11,7 +11,7 @@ module.exports = (opts = {}) => {
   const configuration = require(configFile);// eslint-disable-line global-require
 
   const defaultSettings = {
-    appDir: `${appDir}`,
+    appDir,
     repositoriesDir: `${appDir}repositories/`,
     reportsDir: `${appDir}reports/`,
     ghe: {
