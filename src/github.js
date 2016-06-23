@@ -30,7 +30,6 @@ module.exports = (opts) => {
       .then(res => Object.assign({},
         { name: user, repositories: getModifiedRepos(res, since, until) })
       )
-        .then (function(res) { console.info(res); return res;})
       .catch(err => {
         console.error(err);
       });
