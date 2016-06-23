@@ -6,7 +6,7 @@ module.exports = (opts) => {
 
   function write(date, userDetails, repository, res) {
     const year = date.getFullYear();
-    const month = date.getMonth()+1;
+    const month = date.getMonth() + 1;
     const repoDirName = repository.replace('/', '-');
     const userName = userDetails.name;
     const reportsDir = `${directory}${year}-${month > 9 ? month : `0${month}`}-${userName}/`;

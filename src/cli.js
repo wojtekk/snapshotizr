@@ -63,7 +63,8 @@ function generateDiffs(usersRepositories) {
 }
 
 Promise.all(users.getAll()
-  .map(user => github.getUserRepositories(user.githubUserName, user.githubPersonalToken, since, until)))
+  .map(user => github.getUserRepositories(user.githubUserName,
+    user.githubPersonalToken, since, until)))
   .then(cloneRepositories)
   .then(generateDiffs)
   .then(git.cleanUp.bind(git))

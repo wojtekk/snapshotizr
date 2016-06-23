@@ -5,8 +5,8 @@ module.exports = (opts) => {
     const repos = events.filter(event => {
       const eventCreateData = new Date(event.createdAt);
       return event.type === 'PushEvent' &&
-          eventCreateData >= since &&
-          eventCreateData <= until;
+        eventCreateData >= since &&
+        eventCreateData <= until;
     })
       .map(event => event.repo.name);
 
@@ -16,8 +16,8 @@ module.exports = (opts) => {
   }
 
   function getUserRepositories(user, userPersonalToken, since, until) {
-    let octo = new Octokat({
-      token: userPersonalToken ? userPersonalToken : opts.token,
+    const octo = new Octokat({
+      token: userPersonalToken || opts.token,
       rootURL: opts.apiUrl,
     });
 
