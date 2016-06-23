@@ -67,8 +67,8 @@ Promise.all(users.getAll()
   .then(cloneRepositories)
   .then(generateDiffs)
   .then(git.cleanUp.bind(git))
-  .catch((eror) => {
+  .catch((error) => {
     console.log('\nSorry for error :(\nPlease report it as issue to Github project.');
-    console.error(eror);
+    console.error(error);
     git.cleanUp();
   });
