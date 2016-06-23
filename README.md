@@ -9,7 +9,7 @@ Install and initialise snapshotizr:
     npm install -g snapshotizr
     snapshotizr-init
 
-Edit configuration file:  `~/snapshotizr/config.js`.
+Create a github token with scope: `repo` and edit configuration file: `~/snapshotizr/config.js`.
 
 Enjoy! :)
 
