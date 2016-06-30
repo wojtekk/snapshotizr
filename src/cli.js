@@ -24,7 +24,7 @@ if (!Number.isInteger(month) || month < 1 || month > 12) {
 }
 
 const since = new Date(now.getFullYear(), month, 1);
-const until = new Date(now.getFullYear(), month + 1, 0);
+const until = new Date(now.getFullYear(), month + 1, 1);
 
 console.log(`Snashotizr - reports for ${monthsNames[month]}`);
 console.log(`Dates range: ${since} - ${until}`);
