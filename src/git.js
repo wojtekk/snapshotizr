@@ -11,14 +11,15 @@ class Git {
   checkout(repository) {
     const repoDirName = repository.replace('/', '-');
     const directory = `${this.baseDir}${repoDirName}/`;
-    const res = false;
+    var res;
     if (!shell.test('-d', directory)) {
       shell.mkdir('-p', directory);
       const repoUrl = `${this.gitUrl}${repository}.git`;
       console.info(`Cloning repository ${repository}`);
       res = shell.exec(`git clone ${repoUrl} ${directory}`, { silent: true });
     } else {
-      res = shell.exec(`cd ${directory} && git pull`, { silent: true });
+      console.info(`Pulling changes in repository ${repository}`);
+      res = shell.exec(`pushd ${directory} && git pull && popd`, { silent: true });
     }
     return res.code === 0;
   }
@@ -34,7 +35,7 @@ class Git {
     const logOptions = '--patch --ignore-all-space --ignore-space-at-eol --no-color --summary';
     const options = `-c core.pager=cat -C "${directory}"`;
     const command = `git ${options} log ${sinceParam} ${untilParam} ` +
-      `${userName} ${emails} ${logOptions}`;
+        `${userName} ${emails} ${logOptions}`;
     const res = shell.exec(command, { silent: true });
 
     return res.stdout;
