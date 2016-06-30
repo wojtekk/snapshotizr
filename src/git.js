@@ -11,14 +11,16 @@ class Git {
   checkout(repository) {
     const repoDirName = repository.replace('/', '-');
     const directory = `${this.baseDir}${repoDirName}/`;
+    const res = false;
     if (!shell.test('-d', directory)) {
       shell.mkdir('-p', directory);
       const repoUrl = `${this.gitUrl}${repository}.git`;
       console.info(`Cloning repository ${repository}`);
-      const res = shell.exec(`git clone ${repoUrl} ${directory}`, { silent: true });
-      return res.code === 0;
+      res = shell.exec(`git clone ${repoUrl} ${directory}`, { silent: true });
+    } else {
+      res = shell.exec(`cd ${directory} && git pull`, { silent: true });
     }
-    return true;
+    return res.code === 0;
   }
 
   log(since, until, userDetails, repository) {
