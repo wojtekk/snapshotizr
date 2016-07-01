@@ -9,7 +9,7 @@ module.exports = (opts) => {
     const month = date.getMonth() + 1;
     const repoDirName = repository.replace('/', '-');
     const userName = userDetails.name;
-    const reportsDir = `${directory}${year}-${month > 9 ? month : `0${month}`}-${userName}/`;
+    const reportsDir = `${directory}${userName}/${year}/${month > 9 ? month : `0${month}`}/`;
     shell.mkdir('-p', reportsDir);
     const fileName = `${reportsDir}${repoDirName}.diff`;
     console.info(`Saving diff: ${fileName}`);
