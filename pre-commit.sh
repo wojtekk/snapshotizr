@@ -23,4 +23,4 @@ if [ -n "$ESLINT_OUT" ]; then
 fi
 
 # Run tests
-npm test
+# npm test

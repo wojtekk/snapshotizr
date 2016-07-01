@@ -14,8 +14,8 @@
   "scripts": {
     "test": "echo \"Warning: no test specified\" && exit 0",
     "lint": "eslint .",
-    "prepublish": "composer lint && npm version patch",
-    "post-install-cmd": "composer lint"
+    "prepublish": "npm run lint && npm version patch",
+    "post-install-cmd": "npm run lint"
   },
   "author": "Wojciech Krawczyk <wojciech.krawczyk@schibsted.pl> (https://github.com/wojtekk)",
   "contributors": [
