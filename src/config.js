@@ -23,5 +23,5 @@ module.exports = (opts = {}) => {
     },
   };
 
-  return _.merge(configuration, defaultSettings);
+  return _.merge({}, defaultSettings, configuration);
 };
