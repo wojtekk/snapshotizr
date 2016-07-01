@@ -1,6 +1,6 @@
 {
   "name": "snapshotizr",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Create monthly team diff from GHE repositories",
   "main": "./src/cli.js",
   "engines": {
@@ -14,7 +14,8 @@
   "scripts": {
     "test": "echo \"Warning: no test specified\" && exit 0",
     "lint": "eslint .",
-    "prepublish": "npm version patch"
+    "prepublish": "composer lint && npm version patch",
+    "post-install-cmd": "composer lint"
   },
   "author": "Wojciech Krawczyk <wojciech.krawczyk@schibsted.pl> (https://github.com/wojtekk)",
   "contributors": [
