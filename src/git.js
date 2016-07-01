@@ -11,7 +11,7 @@ class Git {
   checkout(repository) {
     const repoDirName = repository.replace('/', '-');
     const directory = `${this.baseDir}${repoDirName}/`;
-    var res;
+    let res;
     if (!shell.test('-d', directory)) {
       shell.mkdir('-p', directory);
       const repoUrl = `${this.gitUrl}${repository}.git`;
