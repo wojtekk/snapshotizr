@@ -18,7 +18,7 @@ module.exports = (opts) => {
   function getUserRepositories(user, userPersonalToken, since, until) {
     const octo = new Octokat({
       token: userPersonalToken || opts.token,
-      rootURL: opts.apiUrl
+      rootURL: opts.apiUrl,
     });
 
     if (userPersonalToken) {
@@ -36,6 +36,6 @@ module.exports = (opts) => {
   }
 
   return {
-    getUserRepositories
+    getUserRepositories,
   };
 };

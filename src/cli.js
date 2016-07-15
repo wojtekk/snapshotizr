@@ -2,7 +2,11 @@ require('dotenv').config({ silent: true });
 
 const config = require('./config')();
 const Git = require('./git');
-const github = require('./github')({ token: config.ghe.token, apiUrl: config.ghe.apiUrl, repos: config.repos });
+const github = require('./github')({
+  token: config.ghe.token,
+  apiUrl: config.ghe.apiUrl,
+  repos: config.repos,
+});
 const users = require('./users')({ users: config.users });
 
 const monthsNames = ['January', 'February', 'March', 'April', 'May', 'June',

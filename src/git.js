@@ -32,7 +32,9 @@ class Git {
     const emails = userDetails.emails.map(email => `--author="${email}"`).join(' ');
     const sinceParam = `--since "${since}"`;
     const untilParam = `--until "${until}"`;
-    const logOptions = '--patch --ignore-all-space --ignore-space-at-eol --no-color --summary --all --no-merges';
+    const logOptions = '--patch --ignore-all-space ' +
+      '--ignore-space-at-eol --no-color ' +
+      '--summary --all --no-merges';
     const options = `-c core.pager=cat -C "${directory}"`;
     const command = `git ${options} log ${sinceParam} ${untilParam} ` +
         `${userName} ${emails} ${logOptions}`;

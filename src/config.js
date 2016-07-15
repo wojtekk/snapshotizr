@@ -16,12 +16,12 @@ module.exports = (opts = {}) => {
     reportsDir: `${appDir}reports/`,
     ghe: {
       apiUrl: 'https://github.schibsted.io/api/v3',
-      url: 'git@github.schibsted.io:'
+      url: 'git@github.schibsted.io:',
     },
     repos: [],
     git: {
-      depth: 1000
-    }
+      depth: 1000,
+    },
   };
 
   return _.merge({}, defaultSettings, configuration);
