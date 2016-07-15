@@ -1,8 +1,9 @@
 const Octokat = require('octokat');
+const _ = require('lodash');
 
 module.exports = (opts) => {
   function getModifiedRepos(events, since, until) {
-    const repos = events.filter(event => {
+    let repos = events.filter(event => {
       const eventCreateData = new Date(event.createdAt);
       return event.type === 'PushEvent' &&
         eventCreateData >= since &&
@@ -10,15 +11,14 @@ module.exports = (opts) => {
     })
       .map(event => event.repo.name);
 
-    const uniqRepos = [...new Set(repos)];
-
-    return uniqRepos;
+    repos = repos.concat(opts.repos);
+    return _.uniq(repos);
   }
 
   function getUserRepositories(user, userPersonalToken, since, until) {
     const octo = new Octokat({
       token: userPersonalToken || opts.token,
-      rootURL: opts.apiUrl,
+      rootURL: opts.apiUrl
     });
 
     if (userPersonalToken) {
@@ -36,6 +36,6 @@ module.exports = (opts) => {
   }
 
   return {
-    getUserRepositories,
+    getUserRepositories
   };
 };
