@@ -45,6 +45,11 @@ class Git {
     if (res.code) {
       console.error('Error during git log:\n', res.stderr);
     }
+
+    if (res.code !== 0 || res.stdout.length === 0) {
+      console.error(`Empty during git log for repository: ${repository}\n`, res.stderr);
+    }
+
     return res.stdout;
   }
 
