@@ -16,9 +16,18 @@ class Git {
       const repoUrl = `${this.gitUrl}${repository}.git`;
       console.info(`Cloning repository ${repository}`);
       const res = shell.exec(`git clone ${repoUrl} ${directory}`, { silent: true });
+      if (res.code) {
+        console.error('Error during git clone:\n', res.stderr);
+      }
       return res.code === 0;
     }
-    return true;
+    const repoUrl = `${this.gitUrl}${repository}.git`;
+    console.info(`Pulling repository ${repository}`);
+    const res = shell.exec(`git -C ${directory} pull ${repoUrl}`, { silent: true });
+    if (res.code) {
+      console.error('Error during git pull:\n', res.stderr);
+    }
+    return res.code === 0;
   }
 
   log(since, until, userDetails, repository) {
@@ -34,7 +43,9 @@ class Git {
     const command = `git ${options} log ${sinceParam} ${untilParam} ` +
       `${userName} ${emails} ${logOptions}`;
     const res = shell.exec(command, { silent: true });
-
+    if (res.code) {
+      console.error('Error during git log:\n', res.stderr);
+    }
     return res.stdout;
   }
 
