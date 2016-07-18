@@ -11,15 +11,18 @@ class Git {
   checkout(repository) {
     const repoDirName = repository.replace('/', '-');
     const directory = `${this.baseDir}${repoDirName}/`;
+    const repoUrl = `${this.gitUrl}${repository}.git`;
     let res;
     if (!shell.test('-d', directory)) {
       shell.mkdir('-p', directory);
-      const repoUrl = `${this.gitUrl}${repository}.git`;
       console.info(`Cloning repository ${repository}`);
       res = shell.exec(`git clone ${repoUrl} ${directory}`, { silent: true });
     } else {
-      console.info(`Pulling changes in repository ${repository}`);
-      res = shell.exec(`pushd ${directory} && git pull && popd`, { silent: true });
+      console.info(`Pulling repository ${repository}`);
+      res = shell.exec(`git -C ${directory} pull ${repoUrl}`, { silent: true });
+    }
+    if (res.code) {
+      console.error('Error during git command:\n', res.stderr);
     }
     return res.code === 0;
   }
@@ -39,7 +42,9 @@ class Git {
     const command = `git ${options} log ${sinceParam} ${untilParam} ` +
         `${userName} ${emails} ${logOptions}`;
     const res = shell.exec(command, { silent: true });
-
+    if (res.code) {
+      console.error('Error during git log:\n', res.stderr);
+    }
     return res.stdout;
   }
 
