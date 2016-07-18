@@ -1,6 +1,6 @@
 {
   "name": "snapshotizr",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "description": "Create monthly team diff from GHE repositories",
   "main": "./src/cli.js",
   "engines": {
